@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+import 'package:exm_btn_1060/pagina_inicial.dart';
+import 'package:exm_btn_1060/pagina_MySingleChildScrollView.dart';
+import 'package:exm_btn_1060/pagina_MyDatePicker.dart';
+import 'package:exm_btn_1060/pagina_MyCupertinoSearch.dart';
+import 'package:exm_btn_1060/pagina_MyFutureBuilder.dart';
+import 'package:exm_btn_1060/pagina_MyListener.dart';
+import 'package:exm_btn_1060/pagina.MyAnimationBuilder.dart';
+import 'package:exm_btn_1060/pagina_MySnackBar.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  // This widget is the root of your application.
+void main() => runApp(MiRutas());
+
+class MiRutas extends StatelessWidget {
+  const MiRutas({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // Application name
-      title: 'Flutter Hello World',
-      // Application theme data, you can set the colors for the application as
-      // you want
-      theme: ThemeData(
-        // useMaterial3: false,
-        primarySwatch: Colors.blue,
-      ),
-      // A widget which will be started on application startup
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  final String title;
-  const MyHomePage({super.key, required this.title});  
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // The title text which will be shown on the action bar
-        title: Text(title),
-      ),
-      body: Center(
-        child: Text(
-          'Hello, World!',
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Rutas entre paginas',
+      initialRoute: '/',
+      routes: {
+        // Cuando navegamos a la ruta "/", se construye la pantalla PantallaUno
+        '/': (context) => const PantallaUno(),
+        '/pantalla5': (context) => const MySingleChildScrollView(),
+        '/pantalla25': (context) => const MyDatePicker(),
+        '/pantalla95': (context) => const MyCupertinoSearch(),
+        '/pantalla100': (context) => const MyFutureBuilder(),
+        '/pantalla105': (context) => const MyListener(),
+        '/pantalla108': (context) => const MyAnimationBuilder(),
+        '/pantalla109': (context) => const MySnackBar(),
+      },
     );
   }
 }
